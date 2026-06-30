@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<Story>
+
+    <Event Name="Galactic_Start">
+        <Event_Type>STORY_ELAPSED</Event_Type>
+        <Event_Param1>0</Event_Param1>
+    </Event>
+
+    <Event Name="UNSC_Enters_Tech_4">
+        <Event_Type>STORY_TECH_LEVEL</Event_Type>
+        <Event_Param1>3</Event_Param1>
+    </Event>
+
+    <Event Name="CAPTURE_INSTALLATION_05_01">
+		<Event_Type>STORY_TRIGGER</Event_Type>
+		<Prereq>UNSC_Enters_Tech_4</Prereq>
+		<Story_Dialog>DIALOG_UNSC_TECH</Story_Dialog>
+        <Story_Chapter>1</Story_Chapter>
+        <Story_Dialog_Popup>True</Story_Dialog_Popup>
+        <Story_Tag>Installation_Mission</Story_Tag>
+	</Event>
+
+    <Event Name="CAPTURE_INSTALLATION_05_02">
+		<Event_Type>STORY_CONQUER</Event_Type>
+		<Event_Param1>Installation_05</Event_Param1>
+		<Prereq>CAPTURE_INSTALLATION_05_01</Prereq>
+        <Perpetual>true</Perpetual>
+	</Event>
+
+    <Event Name="CAPTURE_INSTALLATION_05_02_ALT">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Installation_Already_Captured</Event_Param2>
+    </Event>
+
+    <Event Name="CAPTURE_INSTALLATION_05_03">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Reward_Type>STORY_GOAL_COMPLETED</Reward_Type>
+        <Reward_Param1>Installation_Mission</Reward_Param1>
+        <Prereq>CAPTURE_INSTALLATION_05_02</Prereq>
+        <Prereq>CAPTURE_INSTALLATION_05_02_ALT</Prereq>
+    </Event>
+
+    <Event Name="SHIELD_TECH_DISPLAY">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Prereq>CAPTURE_INSTALLATION_05_03</Prereq>
+        <Story_Dialog>DIALOG_UNSC_TECH</Story_Dialog>
+        <Story_Chapter>2</Story_Chapter>
+        <Story_Dialog_Popup>True</Story_Dialog_Popup>
+        <Story_Tag>Shield_Display</Story_Tag>
+    </Event>
+</Story>

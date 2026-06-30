@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+
+<Story>
+
+    <Event Name="Pause_Button_Clicked">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_play_pause</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Pause_Button_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Unpaused_Button_Clicked">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>attack_button</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Unpaused_Button_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+    
+    <Event Name="Morale_Level_Init">
+        <Event_Type>STORY_ELAPSED</Event_Type>
+        <Event_Param1>3</Event_Param1>
+    </Event>
+
+    <Event Name="Morale_Restrict_Compromised">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Prereq>Morale_Level_Init</Prereq>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1>Compromised</Reward_Param1>
+        <Reward_Param2>1</Reward_Param2>
+    </Event>
+
+    <Event Name="Morale_Restrict_Strained">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Prereq>Morale_Level_Init</Prereq>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1>Strained</Reward_Param1>
+        <Reward_Param2>1</Reward_Param2>
+    </Event>
+
+    <Event Name="Morale_Restrict_Ascendant">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Prereq>Morale_Level_Init</Prereq>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1>Ascendant</Reward_Param1>
+        <Reward_Param2>1</Reward_Param2>
+    </Event>
+
+    <Event Name="Morale_Restrict_Resolute">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Prereq>Morale_Level_Init</Prereq>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1>Resolute</Reward_Param1>
+        <Reward_Param2>1</Reward_Param2>
+    </Event>
+
+    <Event Name="Show_Screen_Text">
+		<Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+		<Event_Param2>SHOW_SCREEN_TEXT</Event_Param2>
+		<Reward_Type>SCREEN_TEXT</Reward_Type>
+		<Reward_Param1></Reward_Param1>
+		<Reward_Param2>-1</Reward_Param2>
+		<Perpetual>true</Perpetual>
+	</Event>
+
+    <Event Name="Great_Schism_Event">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_Great_Schism</Event_Param2>
+    </Event>
+
+    <Event Name="Far_Isle_Event">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_Far_Isle_Campaign</Event_Param2>
+    </Event>
+
+    <!--<Event Name="Morale_Level_Changed">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Reward_Type>FLASH_GUI</Reward_Type>
+        <Reward_Param1>b_story_arc_g</Reward_Param1>
+        <Reward_Param2>Story_Arc_Hint</Reward_Param2>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Level_Changed_Speech_Compromised</Prereq>
+        <Prereq>Morale_Level_Changed_Speech_Strained</Prereq>
+        <Prereq>Morale_Level_Changed_Speech_Stabilized</Prereq>
+        <Prereq>Morale_Level_Changed_Speech_Resolute</Prereq>
+        <Prereq>Morale_Level_Changed_Speech_Ascendant</Prereq>
+    </Event>-->
+
+    <Event Name="Morale_Level_Changed_Speech_Compromised">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Level_Changed_COMPROMISED</Event_Param2>
+        <Perpetual>true</Perpetual>
+        <Reward_Type>SFX</Reward_Type>
+        <Reward_Param1>EHD_Mission_Updated</Reward_Param1>
+    </Event>
+
+    <Event Name="Morale_Level_Changed_Speech_Strained">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Level_Changed_STRAINED</Event_Param2>
+        <Perpetual>true</Perpetual>
+        <Reward_Type>SFX</Reward_Type>
+        <Reward_Param1>EHD_Mission_Updated</Reward_Param1>
+    </Event>
+
+    <Event Name="Morale_Level_Changed_Speech_Stabilized">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Level_Changed_STABILIZED</Event_Param2>
+        <Perpetual>true</Perpetual>
+        <Reward_Type>SFX</Reward_Type>
+        <Reward_Param1>EHD_Mission_Updated</Reward_Param1>
+    </Event>
+
+    <Event Name="Morale_Level_Changed_Speech_Resolute">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Level_Changed_RESOLUTE</Event_Param2>
+        <Perpetual>true</Perpetual>
+        <Reward_Type>SFX</Reward_Type>
+        <Reward_Param1>EHD_Mission_Updated</Reward_Param1>
+    </Event>
+
+    <Event Name="Morale_Level_Changed_Speech_Ascendant">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Level_Changed_ASCENDANT</Event_Param2>
+        <Perpetual>true</Perpetual>
+        <Reward_Type>SFX</Reward_Type>
+        <Reward_Param1>EHD_Mission_Updated</Reward_Param1>
+    </Event>
+    
+    <Event Name="Morale_Level_Changed_Remove_Cursor">
+        <Event_Type>STORY_ELAPSED</Event_Type>
+        <Event_Param1>5</Event_Param1>
+        <Reward_Type>HIDE_TUTORIAL_CURSOR</Reward_Type>
+        <Reward_Param1>Story_Arc_Hint</Reward_Param1>
+        <Prereq>Morale_Level_Changed</Prereq>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Display_UNSC">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Display_UNSC</Event_Param2>
+        <Story_Dialog>Morale_Dialog</Story_Dialog>
+        <Story_Chapter>1</Story_Chapter>
+        <Story_Dialog_Popup>False</Story_Dialog_Popup>
+        <Story_Tag>LOYALTY_DIS</Story_Tag>
+    </Event>
+
+    <Event Name="Morale_Display_COVN">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Morale_Display_COVN</Event_Param2>
+        <Story_Dialog>Morale_Dialog</Story_Dialog>
+        <Story_Chapter>2</Story_Chapter>
+        <Story_Dialog_Popup>False</Story_Dialog_Popup>
+        <Story_Tag>LOYALTY_DIS</Story_Tag>
+    </Event>
+
+    <Event Name="Morale_Space_Battle_Started">
+        <Event_Type>STORY_SPACE_TACTICAL</Event_Type>
+        <Event_Param1>HaloFiles\Campaigns\StoryFiles\Morale_System_Tactical_Plot.xml</Event_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Hero_Rescued">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_Hero_Rescue</Event_Param2>
+    </Event>
+
+    <Event Name="Hero_Lost">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Friendly_Hero_Lost</Event_Param2>
+    </Event>
+
+    <Event Name="Hero_Killed">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Enemy_Hero_Killed</Event_Param2>
+    </Event>
+
+    <Event Name="Morale_Lost_Battle">
+        <Event_Type>STORY_LOSE_BATTLES</Event_Type>
+        <Event_Param1>1</Event_Param1>
+        <Event_Param2>EITHER</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Won_Battle">
+        <Event_Type>STORY_WIN_BATTLES</Event_Type>
+        <Event_Param1>1</Event_Param1>
+        <Event_Param2>EITHER</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Negative_Construction_Event_Minor">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Mine_Minor_UNSC</Prereq>
+        <Prereq>Morale_Construct_Mine_Minor_COVN</Prereq>
+    </Event>
+
+    <Event Name="Morale_Negative_Construction_Event">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Mine_UNSC</Prereq>
+        <Prereq>Morale_Construct_Mine_COVN</Prereq>
+    </Event>
+
+    <!--<Event Name="Morale_Negative_Construction_Event_Major">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Mine_Minor_UNSC</Prereq>
+    </Event>-->
+
+    <Event Name="Morale_Construction_Event_Minor">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Starbase_1_UNSC</Prereq>
+        <Prereq>Morale_Construct_Starbase_2_UNSC</Prereq>
+        <Prereq>Morale_Construct_Starbase_3_UNSC</Prereq>
+        <Prereq>Morale_Construct_Shipyard_Light_UNSC</Prereq>
+        <Prereq>Morale_Construct_Shipyard_Medium_UNSC</Prereq>
+        <Prereq>Morale_Construct_Starbase_1_COVN</Prereq>
+        <Prereq>Morale_Construct_Starbase_2_COVN</Prereq>
+        <Prereq>Morale_Construct_Starbase_3_COVN</Prereq>
+    </Event>
+
+    <Event Name="Morale_Construction_Event">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Starbase_4_UNSC</Prereq>
+        <Prereq>Morale_Construct_Starbase_4_COVN</Prereq>
+    </Event>
+    
+    <Event Name="Morale_Construction_Event_Major">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Perpetual>true</Perpetual>
+        <Prereq>Morale_Construct_Starbase_5_UNSC</Prereq>
+        <Prereq>Morale_Construct_Shipyard_Heavy_UNSC</Prereq>
+        <Prereq>Morale_Construct_Shipyard_Infinity_UNSC</Prereq>
+        <Prereq>Morale_Construct_Starbase_5_COVN</Prereq>
+    </Event>
+
+    <Event Name="Morale_Construct_Mine_Minor_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_TITANIUM_MINE</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Mine_Minor_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>COVN_TITANIUM_MINE</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Mine_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_DEEP_CORE_MINE</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Mine_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>COVN_DEEP_CORE_MINE</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_1_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Rebel_Star_Base_1</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_2_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Rebel_Star_Base_2</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_3_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Rebel_Star_Base_3</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_4_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Rebel_Star_Base_4</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_5_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Rebel_Star_Base_5</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Shipyard_Light_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_Light_Shipyard</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Shipyard_Medium_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_Medium_Shipyard</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Shipyard_Heavy_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_Heavy_Shipyard</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Shipyard_Infinity_UNSC">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>UNSC_Infinity_Drydock</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_1_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Empire_Star_Base_1</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_2_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Empire_Star_Base_2</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_3_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Empire_Star_Base_3</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_4_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Empire_Star_Base_4</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Morale_Construct_Starbase_5_COVN">
+        <Event_Type>STORY_CONSTRUCT</Event_Type>
+        <Event_Param1>Empire_Star_Base_5</Event_Param1>
+        <Event_Param2>1</Event_Param2>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+</Story>

@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+
+<Story>
+
+    <Event Name="Init_GC">
+        <Event_Type>STORY_ELAPSED</Event_Type>
+        <Event_Param1>0</Event_Param1>
+    </Event>
+
+    <Event Name="Disable_Victory">
+		<Event_Type>STORY_TRIGGER</Event_Type>
+		<Prereq>Init_GC</Prereq>
+		<Reward_Type>ENABLE_VICTORY</Reward_Type>
+		<Reward_Param1>0</Reward_Param1>
+	</Event>
+	
+	<Event Name="No_Touchy_Touchy">
+		<Event_Type>STORY_TRIGGER</Event_Type>
+		<Reward_Type>LOCK_CONTROLS</Reward_Type>
+		<Reward_Param1>1</Reward_Param1>
+		<Prereq>Init_GC</Prereq>
+	</Event>
+
+    <Event Name="Universal_Story_Start">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Spawning_Done</Event_Param2>
+    </Event>
+
+    <Event Name="Enable_Victory">
+		<Event_Type>STORY_TRIGGER</Event_Type>
+		<Prereq>Universal_Story_Start</Prereq>
+		<Reward_Type>ENABLE_VICTORY</Reward_Type>
+		<Reward_Param1>1</Reward_Param1>
+	</Event>
+
+	<Event Name="Yes_Touchy_Touchy">
+		<Event_Type>STORY_TRIGGER</Event_Type>
+		<Reward_Type>LOCK_CONTROLS</Reward_Type>
+		<Reward_Param1>0</Reward_Param1>
+		<Prereq>Universal_Story_Start</Prereq>
+	</Event>
+
+    <Event Name="Structures_Super_Filter">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_filters4</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Structures_Super_Filter_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Capitals_Filter">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_filters5</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Capitals_Filter_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Frigate_Corvette_Filter">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_filters6</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Frigate_Corvette_Filter_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Fighter_Filter">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_filters7</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Fighter_Filter_Clicked</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Force_Click_Filter">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Force_Click_Element</Event_Param2>
+        <Reward_Type>FORCE_CLICK_GUI</Reward_Type>
+        <Reward_Param1 />
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Evnet Name="Click_Space_Tab">
+        <Event_Type>STORY_CLICK_GUI</Event_Type>
+        <Event_Param1>b_space_tab</Event_Param1>
+        <Reward_Type>TRIGGER_AI</Reward_Type>
+        <Reward_Param1>Click_Space_Tab</Reward_Param1>
+        <Perpetual>true</Perpetual>
+    </Evnet>
+
+    <Event Name="Reset_Filter">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Reset_Filter</Event_Param2>
+        <Reward_Type>RESET_EVENT</Reward_Type>
+        <Reward_Param1 />
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Tech_Theft_Display">
+		<Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>ACTIVATE_THEFT_DISPLAY</Event_Param2>
+		<Story_Dialog>DIALOG_TECH_STEAL</Story_Dialog>
+		<Story_Chapter>1</Story_Chapter>
+		<Story_Tag>Intro_Tag</Story_Tag>
+	</Event>
+
+    <Event Name="Great_Schism_Event_Dialog">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_Great_Schism_Dialog</Event_Param2>
+        <Story_Dialog>DIALOG_SCHISM</Story_Dialog>
+		<Story_Chapter>1</Story_Chapter>
+		<Story_Tag>Schism_Tag</Story_Tag>
+    </Event>
+
+    <Event Name="Far_Isle_Event_Dialog">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_Far_Isle_Campaign_Dialog</Event_Param2>
+        <Story_Dialog>DIALOG_SCHISM</Story_Dialog>
+		<Story_Chapter>2</Story_Chapter>
+		<Story_Tag>Schism_Tag</Story_Tag>
+    </Event>
+
+    <Event Name="Galactic_Conquest_Victory">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_GC_Victory</Event_Param2>
+        <Reward_Type>VICTORY</Reward_Type>
+    </Event>
+
+    <Event Name="Galactic_Conquest_Loss">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Trigger_GC_Loss</Event_Param2>
+        <Reward_Type>VICTORY</Reward_Type>
+    </Event>
+
+    <Event Name="Restrict_Planet">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Restrict_Planet</Event_Param2>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1></Reward_Param1>
+        <Reward_Param2>1</Reward_Param2>
+        <Reward_Param3>1</Reward_Param3>
+        <Reward_Param4>1</Reward_Param4>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Unrestrict_Planet">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Unrestrict_Planet</Event_Param2>
+        <Reward_Type>SET_PLANET_RESTRICTED</Reward_Type>
+        <Reward_Param1></Reward_Param1>
+        <Reward_Param2>0</Reward_Param2>
+        <Reward_Param3>0</Reward_Param3>
+        <Reward_Param4>0</Reward_Param4>
+        <Perpetual>true</Perpetual>
+    </Event>
+</Story>

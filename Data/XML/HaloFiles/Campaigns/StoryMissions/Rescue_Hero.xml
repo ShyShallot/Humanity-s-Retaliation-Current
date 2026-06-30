@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<Story>
+
+    <Event Name="Hero_Rescue_Init">
+        <Event_Type>STORY_ELAPSED</Event_Type>
+        <Event_Param1>3</Event_Param1>
+    </Event>
+
+    <Event Name="Rescue_Major_Hero_Dialog">
+        <Event_Type>STORY_AI_NOTIFICATION</Event_Type>
+        <Event_Param2>Rescue_Major_Hero_Activate</Event_Param2>
+        <Story_Dialog>DIALOG_RESCUE</Story_Dialog>
+        <Story_Chapter>1</Story_Chapter>
+        <Story_Dialog_Popup>True</Story_Dialog_Popup>
+        <Story_Tag>Rescue_Major_Hero_Dialog</Story_Tag>
+        <Branch>Rescue_Major_Hero_Branch</Branch>
+        <Perpetual>true</Perpetual>
+    </Event>
+    <Event Name="Rescue_Major_Hero_Mission">
+        <Event_Type>STORY_CONQUER</Event_Type>
+        <Event_Param1/>
+        <Event_Param3>FILTER_FRIENDLY_ONLY</Event_Param3>
+        <Reward_Type>SPAWN_HERO</Reward_Type>
+        <Reward_Param1/>
+        <Reward_Param2>Earth</Reward_Param2>
+        <Branch>Rescue_Major_Hero_Branch</Branch>
+        <Prereq>Rescue_Major_Hero_Dialog</Prereq>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+    <Event Name="Rescue_Major_Hero_Reset">
+        <Event_Type>STORY_TRIGGER</Event_Type>
+        <Reward_Type>REMOVE_STORY_GOAL</Reward_Type>
+        <Reward_Param1>Rescue_Major_Hero_Dialog</Reward_Param1>
+        <Branch>Rescue_Major_Hero_Branch</Branch>
+        <Prereq>Rescue_Major_Hero_Mission</Prereq>
+        <Perpetual>true</Perpetual>
+    </Event>
+
+</Story>
